@@ -11,7 +11,7 @@ RUN \
   git clone --single-branch --branch master https://github.com/etsy/statsd.git && \
   cd /statsd && \
   cp -v exampleConfig.js config.js && \
-  sed -i 's/graphite.example.com/graphite/' config.js
+  sed -i 's/"graphite.example.com"/process.env.GRAPHITE_HOST/' config.js
 
 WORKDIR /statsd
 
